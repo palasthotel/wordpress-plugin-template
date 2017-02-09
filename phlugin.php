@@ -53,3 +53,11 @@ function phlugin_save_meta_box( $post_id ) {
 }
 add_action( 'save_post', 'phlugin_save_meta_box' );
 
+
+ /**
+ * Proper way to enqueue scripts and styles
+ */
+function phlugin_scripts() {
+    wp_enqueue_style( 'phlugin', plugins_url( "phlugin.css", __FILE__ ));
+}
+add_action( 'wp_enqueue_scripts', 'phlugin_scripts' );
